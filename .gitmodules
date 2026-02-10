@@ -1,0 +1,4 @@
+[submodule "AIgiSE"]
+	path = AIgiSE
+	url = git@github-personal:AIgiSE/AIgiSE.git
+	branch = jingyang/areal
