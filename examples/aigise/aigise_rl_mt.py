@@ -116,6 +116,7 @@ def main(args):
         tool_call_parser=config.tool_call_parser,
         reasoning_parser=config.reasoning_parser,
         log_raw_conversation=config.log_raw_conversation,
+        model_name=config.tokenizer_path,
     )
 
     with PPOTrainer(

@@ -35,6 +35,7 @@ class AIgiSERLWorkflow(RolloutWorkflow):
         tool_call_parser: str = "qwen25",
         reasoning_parser: str = "qwen3-thinking",
         log_raw_conversation: bool = False,
+        model_name: str | None = None,
     ):
         if isinstance(tokenizer, str):
             from areal.utils.hf_utils import load_hf_tokenizer
@@ -58,7 +59,9 @@ class AIgiSERLWorkflow(RolloutWorkflow):
             os.makedirs(self.dump_dir, exist_ok=True)
 
         # Create AIgiSE client
-        self._aigise_client = aigise.create(agent_name, benchmark_name)
+        self._aigise_client = aigise.create(
+            agent_name, benchmark_name, model_name=model_name
+        )
 
     def _create_log_callback(self, traj_dir: str):
         """Create a callback function for logging raw conversations to JSON files.
