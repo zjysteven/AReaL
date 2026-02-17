@@ -162,6 +162,6 @@ stats_logger:
   trial_name: ${trial_name}
   fileroot: ${cluster.fileroot}
   wandb:
-    mode: offline
+    mode: online
     project: aigise-grpo
     entity: null
