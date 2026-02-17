@@ -91,6 +91,15 @@ def get_aigise_dataset(
 
 
 def main(args):
+    # Clean up any orphaned Docker containers/volumes from previous crashed runs
+    try:
+        from aigise.utils.docker_cleanup import cleanup_orphaned_docker_resources
+
+        report = cleanup_orphaned_docker_resources()
+        print(f"Pre-run Docker cleanup: {report.summary()}")
+    except Exception as exc:
+        print(f"Pre-run Docker cleanup failed (non-fatal): {exc}")
+
     config, _ = load_expr_config(args, AIgiSEGRPOConfig)
     tokenizer = load_hf_tokenizer(config.tokenizer_path)
 
