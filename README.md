@@ -3,6 +3,8 @@
 ## Setup
 
 ```bash
+git submodule update --init --recursive
+
 # we use uv workspace to simultaneously install dependencies for AReaL and AIgiSE
 uv sync --extra cuda
 ```
